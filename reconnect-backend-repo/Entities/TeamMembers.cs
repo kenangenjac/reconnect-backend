@@ -1,13 +1,23 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
 namespace reconnect_backend_repo.Entities
 {
     public class TeamMembers
     {
-        public Guid Id { set; get; } = Guid.NewGuid();
+        [Key, Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { set; get; }
 
-        public TeamMembers()
-        {
-        }
+        public int UserId { set; get; }
+        [JsonIgnore]
+        public virtual User? User { set; get; }
+        public int TeamId { set; get; }
+        [JsonIgnore]
+        public virtual Team? Team { set; get; }
+
     }
 }
 

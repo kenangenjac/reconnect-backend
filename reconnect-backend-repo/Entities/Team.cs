@@ -1,14 +1,16 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace reconnect_backend_repo.Entities
 {
     public class Team
     {
-        public Guid Id { set; get; } = Guid.NewGuid();
-        public string Name { set; get; } = String.Empty;
+        [Key, Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { set; get; }
+        public string Name { set; get; }
 
-        public TeamMembers TeamMembers { get; set; }
-
-        public Team() { }
     }
 }
 

@@ -1,15 +1,18 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
 namespace reconnect_backend_repo.Entities
 {
     public class Activity
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
-        public string Name { get; set; } = String.Empty;
+        [Key, Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        public virtual Location Location { get; set; }
-        public virtual Event Event { get; set; }
-
-        public Activity() { }
+        
     }
 }
 

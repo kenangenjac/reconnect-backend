@@ -14,6 +14,12 @@ namespace reconnect_backend_repo.Data
         public DbSet<Location> Locations { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamMembers> TeamMembers { get; set; }
+    
+    //    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //    {
+    //        modelBuilder.Entity<Event>()
+    //            .HasOne(a => a.Location).WithMany(a => a.Activity).OnDelete(DeleteBehavior.NoAction);
+    //    }
     }
 }
 

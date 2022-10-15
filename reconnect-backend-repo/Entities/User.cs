@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,16 +10,13 @@ namespace reconnect_backend_repo.Entities
     [Index(nameof(Email), IsUnique = true)]
     public class User
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        [Key, Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Username { get; set; } = string.Empty;
         public string PasswordHash { get; set; }
-
-        public TeamMembers TeamMembers { get; set; }
-        public virtual Event Event { get; set; }
-        
-        public User() {}
     }
 }

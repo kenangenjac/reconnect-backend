@@ -1,13 +1,17 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace reconnect_backend_repo.Entities
 {
     public class Event
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
-        public string Name { get; set; } = String.Empty;
+        [Key, Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get; set; }
         [Column(TypeName = "decimal(3,1)")]
         public decimal FirstPlacePrize { get; set; }
         [Column(TypeName = "decimal(3,1)")]
@@ -15,12 +19,16 @@ namespace reconnect_backend_repo.Entities
         [Column(TypeName = "decimal(3,1)")]
         public decimal ThirdPlacePrize { get; set; }
 
-        public virtual User User { get; set; }
-        public virtual Location Location { get; set; }
-        public virtual Activity Activity { get; set; }
-        public Team Team { get; set; }
+        public int HostId { get; set; }
+        [JsonIgnore]
+        public virtual User? User { get; set; }
+        public int LocationId { get; set; }
+        [JsonIgnore]
+        public virtual Location? Location { get; set; }
+        public int ActivityId { get; set; }
+        [JsonIgnore]
+        public virtual Activity? Activity { get; set; }
 
-        public Event() { }
     }
 }
 
