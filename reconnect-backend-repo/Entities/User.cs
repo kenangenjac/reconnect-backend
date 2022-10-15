@@ -17,6 +17,7 @@ namespace reconnect_backend_repo.Entities
         public string PasswordHash { get; set; }
 
         public TeamMembers TeamMembers { get; set; }
+        public virtual Event Event { get; set; }
         
         public User() {}
     }

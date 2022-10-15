@@ -16,10 +16,11 @@ namespace reconnect_backend_repo.Entities
         public decimal ThirdPlacePrize { get; set; }
 
         public virtual User User { get; set; }
+        public virtual Location Location { get; set; }
+        public virtual Activity Activity { get; set; }
+        public Team Team { get; set; }
 
-        public Event()
-        {
-        }
+        public Event() { }
     }
 }
 

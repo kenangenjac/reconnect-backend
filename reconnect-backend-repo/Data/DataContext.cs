@@ -9,7 +9,11 @@ namespace reconnect_backend_repo.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         
         public DbSet<User> Users { get; set; }
-       
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<TeamMembers> TeamMembers { get; set; }
     }
 }
 
