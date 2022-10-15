@@ -50,18 +50,18 @@ namespace reconnect_backend_repo.Services
                 throw new Exception("Invalid credentials");
             }
 
-            Regex passwordCheckRegex = new("/^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/");   // 8 char, 1 veliki, 1 mali, 1 br, i spec
-            Regex usernameCheckRegex = new("/\\//g");
+            //Regex passwordCheckRegex = new("/^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/");   // 8 char, 1 veliki, 1 mali, 1 br, i spec
+            //Regex usernameCheckRegex = new("/\\//g");
             
-            if (!passwordCheckRegex.IsMatch(request.Password))
-            {
-                throw new Exception("Invalid password format");
-            }
+            //if (!passwordCheckRegex.IsMatch(request.Password))
+            //{
+            //    throw new Exception("Invalid password format");
+            //}
 
-            if (!usernameCheckRegex.IsMatch(request.Username))
-            {
-                throw new Exception("Invalid username format");
-            }
+            //if (!usernameCheckRegex.IsMatch(request.Username))
+            //{
+            //    throw new Exception("Invalid username format");
+            //}
 
             var user = new User
             {
