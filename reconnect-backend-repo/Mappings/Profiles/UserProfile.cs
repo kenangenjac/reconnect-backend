@@ -11,6 +11,7 @@ namespace reconnect_backend_repo.Mappings.Profiles
         {
             CreateMap<User, LoginResponse>();
             CreateMap<User, RegisterResponse>();
+            CreateMap<Event, EventResponse>();
         }
     }
 }

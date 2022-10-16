@@ -10,7 +10,6 @@ namespace reconnect_backend_repo.Entities
         [Key, Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { set; get; }
-
         public int UserId { set; get; }
         [JsonIgnore]
         public virtual User? User { set; get; }

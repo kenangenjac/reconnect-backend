@@ -5,7 +5,7 @@ using reconnect_backend_repo.Models;
 
 namespace reconnect_backend_repo.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -15,7 +15,7 @@ namespace reconnect_backend_repo.Controllers
             _authService = authService;
         }
 
-        [HttpPost("/login")]
+        [HttpPost("login")]
         [ProducesResponseType(typeof(LoginResponse), StatusCodes.Status200OK)]
         public async Task<ActionResult> Login([FromBody] LoginRequest request)
         {
@@ -23,7 +23,7 @@ namespace reconnect_backend_repo.Controllers
             return Ok(response);
         }
 
-        [HttpPost("/register")]
+        [HttpPost("register")]
         [ProducesResponseType(typeof(RegisterResponse), StatusCodes.Status200OK)]
         public async Task<ActionResult> Register([FromBody] RegisterRequest request)
         {

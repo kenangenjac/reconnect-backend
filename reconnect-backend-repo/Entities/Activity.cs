@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace reconnect_backend_repo.Entities
 {
@@ -11,8 +11,6 @@ namespace reconnect_backend_repo.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-
-        
     }
 }
 

@@ -28,7 +28,6 @@ namespace reconnect_backend_repo.Entities
         public int ActivityId { get; set; }
         [JsonIgnore]
         public virtual Activity? Activity { get; set; }
-
     }
 }
 
