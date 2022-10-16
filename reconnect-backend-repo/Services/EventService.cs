@@ -86,7 +86,18 @@ namespace reconnect_backend_repo.Services
             _context.Events.Add(newEvent);
             await _context.SaveChangesAsync();
 
-            return _mapper.Map<EventResponse>(newEvent);
+            var response = new EventResponse()
+            {
+                Name = newEvent.Name,
+                FirstPlacePrize = newEvent.FirstPlacePrize,
+                SecondPlacePrize = newEvent.SecondPlacePrize,
+                ThirdPlacePrize = newEvent.ThirdPlacePrize,
+                Activity = newEvent.Activity,
+                Host = newEvent.User,
+                Location = newEvent.Location,
+            };
+
+            return response;
         }
     }
 }
